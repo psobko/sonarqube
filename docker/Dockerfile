@@ -17,7 +17,8 @@ ENV SQ_GIT_VERSION=1.5.0.1113 \
     SQ_FINDSEC_VERSION=3.7.0 \
     SQ_PITEST_VERSION=0.9 \
     SQ_DPCHECK_VERSION=1.1.0 \
-    SQ_CITY_VERSION=1.0
+    SQ_CITY_VERSION=1.0 \
+    SQ_SWIFT_VERSION=0.3.6
 
 RUN set -x \
     && rm -rf $SONARQUBE_HOME/lib/bundled-plugins/* \
@@ -40,6 +41,7 @@ RUN set -x \
     && wget --no-verbose https://github.com/VinodAnandan/sonar-pitest/releases/download/v$SQ_PITEST_VERSION/sonar-pitest-plugin-$SQ_PITEST_VERSION.jar \
     && wget --no-verbose https://github.com/stevespringett/dependency-check-sonar-plugin/releases/download/$SQ_DPCHECK_VERSION/sonar-dependency-check-plugin-$SQ_DPCHECK_VERSION.jar \
     && wget --no-verbose https://github.com/stefanrinderle/softvis3d/releases/download/softvis3d-$SQ_CITY_VERSION/sonar-softvis3d-plugin-$SQ_CITY_VERSION.jar
+    && wget --no-verbose https://github.com/Backelite/sonar-swift/releases/download/$SQ_SWIFT_VERSION/backelite-sonar-swift-plugin-$SQ_SWIFT_VERSION.jar
 
 WORKDIR $SONARQUBE_HOME
 COPY run.sh $SONARQUBE_HOME/bin/
