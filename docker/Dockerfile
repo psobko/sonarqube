@@ -1,7 +1,6 @@
 FROM sonarqube:6.7.3-alpine
 
 ENV SQ_GIT_VERSION=1.5.0.1113 \
-    SQ_SVN_VERSION=1.8.0.1093 \
     SQ_JAVA_VERSION=5.4.0.13884 \
     SQ_JS_VERSION=4.1.0.6202 \
     SQ_TS_VERSION=1.7.0.2567 \
@@ -24,8 +23,6 @@ RUN set -x \
     && rm -rf $SONARQUBE_HOME/lib/bundled-plugins/* \
     && cd  $SONARQUBE_HOME/extensions/plugins/ \
     && wget --no-verbose https://repox.sonarsource.com/sonarsource-public-builds/org/sonarsource/scm/git/sonar-scm-git-plugin/$SQ_GIT_VERSION/sonar-scm-git-plugin-$SQ_GIT_VERSION.jar \
-    && wget --no-verbose https://repox.sonarsource.com/sonarsource-public-builds/org/sonarsource/scm/svn/sonar-scm-svn-plugin/$SQ_SVN_VERSION/sonar-scm-svn-plugin-$SQ_SVN_VERSION.jar \
-    && wget --no-verbose https://repox.sonarsource.com/sonarsource-public-builds/org/sonarsource/java/sonar-java-plugin/$SQ_JAVA_VERSION/sonar-java-plugin-$SQ_JAVA_VERSION.jar \
     && wget --no-verbose https://repox.sonarsource.com/sonarsource-public-builds/org/sonarsource/javascript/sonar-javascript-plugin/$SQ_JS_VERSION/sonar-javascript-plugin-$SQ_JS_VERSION.jar \
     && wget --no-verbose https://repox.sonarsource.com/sonarsource-public-builds/org/sonarsource/typescript/sonar-typescript-plugin/$SQ_TS_VERSION/sonar-typescript-plugin-$SQ_TS_VERSION.jar \
     && wget --no-verbose https://repox.sonarsource.com/sonarsource-public-builds/org/sonarsource/php/sonar-php-plugin/$SQ_PHP_VERSION/sonar-php-plugin-$SQ_PHP_VERSION.jar \
@@ -37,7 +34,7 @@ RUN set -x \
     && wget --no-verbose https://repox.sonarsource.com/sonarsource-public-builds/org/sonarsource/github/sonar-github-plugin/$SQ_GITHUB_VERSION/sonar-github-plugin-$SQ_GITHUB_VERSION.jar \
     && wget --no-verbose https://github.com/uartois/sonar-golang/releases/download/v$SQ_GO_VERSION/sonar-golang-plugin-$SQ_GO_VERSION.jar \
     && wget --no-verbose https://github.com/gabrie-allaigre/sonar-gitlab-plugin/releases/download/$SQ_GITLAB_VERSION/sonar-gitlab-plugin-$SQ_GITLAB_VERSION.jar \
-    && wget --no-verbose https://github.com/SonarQubeCommunity/sonar-findbugs/releases/download/$SQ_FINDSEC_VERSION/sonar-findbugs-plugin-$SQ_FINDSEC_VERSION.jar \
+    # && wget --no-verbose https://github.com/SonarQubeCommunity/sonar-findbugs/releases/download/$SQ_FINDSEC_VERSION/sonar-findbugs-plugin-$SQ_FINDSEC_VERSION.jar \
     && wget --no-verbose https://github.com/VinodAnandan/sonar-pitest/releases/download/v$SQ_PITEST_VERSION/sonar-pitest-plugin-$SQ_PITEST_VERSION.jar \
     && wget --no-verbose https://github.com/stevespringett/dependency-check-sonar-plugin/releases/download/$SQ_DPCHECK_VERSION/sonar-dependency-check-plugin-$SQ_DPCHECK_VERSION.jar \
     && wget --no-verbose https://github.com/stefanrinderle/softvis3d/releases/download/softvis3d-$SQ_CITY_VERSION/sonar-softvis3d-plugin-$SQ_CITY_VERSION.jar \
