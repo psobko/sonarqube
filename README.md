@@ -50,6 +50,8 @@ On the first run you will need to generate an auth token:
 
 > If you get errors with `lizard` or can't execute the command you'll need to manually install it.
 
+Follow the instructions for setting up the sonar-swift plugin.
+
 ##### Analyzing Code
 
 First run: `$ sh setup-sonar-swift.sh`
